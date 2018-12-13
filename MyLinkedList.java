@@ -26,9 +26,8 @@ public class MyLinkedList{
     return out;
   }
   /* add a value to linked list
-  - if this is the end (or if the linked list is empty) then we have to change that!
-  - if this is the beginning we needa also make sure that it doesn't cut off the
-    other nodes!*/
+  - if this is the end (as in it stops with no more references) then we have to change that!
+  - if this is the end for now but could be added we need to set the end to the NEXT */
   public boolean add(int value){
     Node n = new Node(value, null, end);
     if (end == null) {
