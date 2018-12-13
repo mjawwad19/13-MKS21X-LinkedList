@@ -1,25 +1,25 @@
 import java.util.List;
 
 public class MyLinkedList{
-  private int size;
+  private int length;
   private Node start,end;
   //everything needs a constructor if it's an object!
   public MyLinkedList() {
-    size = 0;
+    length = 0;
   }
   //basic fundamentals
   public int size() {
-    return size;
+    return length;
   }
   //toString just prints the contents of the linked list as if array containing each node's data val
   public String toString(){
     String out = "[";
     if (start == null) return "[]";
     Node curr = start;
-    while (curr.getNext() != null) {
+    while (curr.next() != null) {
       //just so we can keep going through each node!
       out+=curr + ", ";
-      curr = curr.getNext();
+      curr = curr.next();
       //we needda keep updating!
     }
     out+= curr + "]";
@@ -28,7 +28,7 @@ public class MyLinkedList{
   /* add a value to linked list
   - if this is the end (as in it stops with no more references) then we have to change that!
   - if this is the end for now but could be added we need to set the end to the NEXT */
-  public boolean add(int value){
+  public boolean add(Integer value){
     Node n = new Node(value, null, end);
     if (end == null) {
       end = n;
@@ -38,7 +38,7 @@ public class MyLinkedList{
       end.setNext(n);
       end = n;
     }
-    size++;
+    length++;
     return true;
   }
 }
