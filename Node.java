@@ -15,4 +15,25 @@ public class Node {
   public int getData() {
     return data;
   }
+  //this only falls into place cuz everything is private
+  public Node getNext() {
+    return next;
+  }
+  //same
+  public Node getPrevious() {
+    return prev;
+  }
+  public void setVale(int value) {
+    data = value;
+  }
+  public void setNext(Node nextN) {
+    next = nextN;
+  }
+  public void setPrev(Node prevN) {
+    prev = prevN;
+  }
+  public String toString() {
+    return ""+data;
+  }
+  
 }
