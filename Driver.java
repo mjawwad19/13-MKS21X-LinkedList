@@ -2,5 +2,12 @@ public class Driver {
   public static void main (String[] args) {
     Node n1 = new Node(-2);
     System.out.println(n1.getData()); //should print -2
+    System.out.println(n1);//also -2
+    MyLinkedList m1 = new MyLinkedList();
+    System.out.println(m1); //[]
+    m1.add(2);
+    System.out.println(m1); //[2]
+    m1.add(3);
+    System.out.println(m1); //[2,3]
   }
 }
