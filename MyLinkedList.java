@@ -11,6 +11,10 @@ class Node {
     next = nextNode;
     prev = prevNode;
   }
+  //Helping to see vals (we're gonna need this for toString too)
+  public int getData() {
+    return data;
+  }
 }
 
 public class MyLinkedList{
