@@ -1,39 +1,41 @@
 public class Node {
-  private int data;
+  private Integer data;
   private Node next, prev;
   //create a Node given a value
-  public Node(int value) {
+  public Node(Integer value) {
     data = value;
   }
   //create a Node that specifies the reference (or none) of the previous and future node
-  public Node(int value, Node nextNode, Node prevNode) {
+  public Node(Integer value, Node nextNode, Node prevNode) {
     data = value;
     next = nextNode;
     prev = prevNode;
   }
   //Helping to see vals (we're gonna need this for toString too)
-  public int getData() {
+  public Integer getData() {
     return data;
   }
   //this only falls into place cuz everything is private
-  public Node getNext() {
+  public Node next() {
     return next;
   }
   //same
-  public Node getPrevious() {
+  public Node prev() {
     return prev;
   }
-  public void setVale(int value) {
-    data = value;
+  public Integer setData(Integer i) {
+    Integer temp = data;
+    data = i;
+    return temp;
   }
-  public void setNext(Node nextN) {
-    next = nextN;
+  public void setNext(Node other) {
+    next = other;
   }
-  public void setPrev(Node prevN) {
-    prev = prevN;
+  public void setPrev(Node other) {
+    prev = other;
   }
   public String toString() {
     return ""+data;
   }
-  
+
 }
