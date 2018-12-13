@@ -6,8 +6,9 @@ public class Driver {
     MyLinkedList m1 = new MyLinkedList();
     System.out.println(m1); //[]
     m1.add(2);
-    System.out.println(m1); //[2]
+    //System.out.println(m1); //[2]
     m1.add(3);
     System.out.println(m1); //[2,3]
+    System.out.println(m1.size()); //2;
   }
 }
