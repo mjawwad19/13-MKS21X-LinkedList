@@ -41,4 +41,11 @@ public class MyLinkedList{
     length++;
     return true;
   }
+  public Integer get(int index){}
+  public Integer set(int index, Integer value){}
+  public boolean contains(Integer value){}
+  public void add (int index, Integer value){}
+  public Integer remove(int index){}
+  public Integer remove(Integer value){}
+  private Node getNthNode(int index){}
 }
