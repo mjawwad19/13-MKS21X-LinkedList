@@ -80,22 +80,11 @@ public class MyLinkedList{
     return index;
   }
   public boolean remove(Integer value){
-    Node curr = start;
-    while (curr != null) {
-      if (curr.getData() == value) {
-        curr.next().setPrev(curr.prev());
-        curr.prev().setNext(curr.next());
-        /*p much: the next node will now be connected to the one before current.
-        the previous node will now be connected to the one after current.
-        since nothing is connected to current anymore, it is effectively gone!*/
-        length--;
-        return true;
-      }
-      curr.next();
-      //otherwise update!
-    }
-    return false;
-    // I couldn't use !contains for false because of java requiring a return at the very bottom sigh
+    //screw it i'm doing the work in remove index
+    if (!contains(value)) return false;
+    int index = indexOf(value);
+    remove(index);
+    return true;
   }
   /*public void add (int index, Integer value){}
   public Integer remove(int index){}*/
