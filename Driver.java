@@ -15,6 +15,8 @@ public class Driver {
     //System.out.println(m1.get(2)); //error
     m1.set(0, 24);
     System.out.println(m1); //[24,3]
-    m1.set(2, 12); //error
+    //m1.set(2, 12); //error
+    System.out.println(m1.contains(30)); // false;
+    System.out.println(m1.contains(24)); // true;
   }
 }
