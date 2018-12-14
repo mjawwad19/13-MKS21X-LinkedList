@@ -18,5 +18,8 @@ public class Driver {
     //m1.set(2, 12); //error
     System.out.println(m1.contains(30)); // false;
     System.out.println(m1.contains(24)); // true;
+    System.out.println(m1.indexOf(30)); // -1
+    System.out.println(m1.indexOf(24)); // 0
+    System.out.println(m1.indexOf(3)); //1
   }
 }
