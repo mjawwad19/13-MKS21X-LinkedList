@@ -41,18 +41,19 @@ public class MyLinkedList{
     length++;
     return true;
   }
-/*  public Integer get(int index){
+  public Integer get(int index){
+    return getNthNode(index).getData();
   }
-  public Integer set(int index, Integer value){}
+  /*public Integer set(int index, Integer value){}
   public boolean contains(Integer value){}
   public void add (int index, Integer value){}
   public Integer remove(int index){}
   public Integer remove(Integer value){}*/
-  public Node getNthNode(int index){
+  private Node getNthNode(int index){
     if (index < 0 || index >= length) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
     Node curr = start;
     int i = 0;
-    while (i < index) {
+    while (i < index) { //could be a for loop but I have plans for this for binary searching later on...
       curr = curr.next();
       i++;
     }
