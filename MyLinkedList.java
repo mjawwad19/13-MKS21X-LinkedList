@@ -6,6 +6,7 @@ public class MyLinkedList{
   //everything needs a constructor if it's an object!
   public MyLinkedList() {
     length = 0;
+
   }
   //basic fundamentals
   public int size() {
@@ -26,7 +27,7 @@ public class MyLinkedList{
     return out;
   }
   private Node getNthNode(int index){
-    if (index < 0 || index >= length) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
+    if (index < 0 || index >= size()) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
     Node curr = start;
     int i = 0;
     while (i < index) { //could be a for loop but I have plans for this for binary searching later on...
@@ -86,6 +87,51 @@ public class MyLinkedList{
     remove(index);
     return true;
   }
-  /*public void add (int index, Integer value){}
-  public Integer remove(int index){}*/
+  public Integer remove(int index){
+    Node temp = getNthNode(index);
+    Node nex = temp.next();
+    Node pre = temp.prev();
+    if (index == 0) {
+      //this is how you ecome the new start
+      nex.setPrev(null);
+      start = nex;
+    }
+    if (index == size() -1) {
+      //this is how you become the new end!
+      pre.setNext(null);
+      end = pre;
+    }
+    else {
+      nex.setPrev(pre);
+      pre.setNext(nex);
+    }
+    length--; //majority of body was ported over from prev commit logic!
+    return temp.getData();
+  }
+  public void add (int index, Integer value){
+    if (index < 0 || index > size())
+       throw new IndexOutOfBoundsException();
+    Node temp;
+    if (index == 0) {
+      temp = new Node(value, start, null);
+      start.setPrev(temp);
+      start = temp;
+      length++;
+    }
+    else if (index == size()) {
+      add(value);
+    }
+    //the earlier two cases are simple enough
+    else{
+      Node curr = getNthNode(index);
+      //this is the node at the index that will be shifted to the right once I add in
+      Node prev = getNthNode(index -1);
+      //this is the node that will link to the inserted after added node! currently linked to curr
+      temp = new Node(value,getNthNode(index),getNthNode(index -1));
+      getNthNode(index).setPrev(temp);
+      getNthNode(index -1).setNext(temp);
+      length++;
+    }
+  }
+
 }
