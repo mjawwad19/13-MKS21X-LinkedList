@@ -72,4 +72,16 @@ public class MyLinkedList{
   /*public void add (int index, Integer value){}
   public Integer remove(int index){}
   public boolean remove(Integer value){}*/
-}
+  int indexOf(Integer value){
+    if (!contains(value)) return -1;
+    Node curr = start;
+    int index = 0;
+    while (curr != null) {
+      if (curr.getData() == value) return index;
+      else {
+        curr = curr.next();
+        index++;
+      }
+    }
+    }
+  }
