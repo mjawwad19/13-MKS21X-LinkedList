@@ -44,8 +44,14 @@ public class MyLinkedList{
   public Integer get(int index){
     return getNthNode(index).getData();
   }
-  /*public Integer set(int index, Integer value){}
-  public boolean contains(Integer value){}
+  public Integer set(int index, Integer value){
+    Node mod = getNthNode(index); //I love it when I can keep reusing getNthNode
+    Integer tempData = mod.getData();
+    mod.setData(value);
+    //utilizing Node's setData, we can change any node in the linkedList given an integer
+    return tempData; //we MUST return the data before it was changed!
+  }
+  /*public boolean contains(Integer value){}
   public void add (int index, Integer value){}
   public Integer remove(int index){}
   public Integer remove(Integer value){}*/
