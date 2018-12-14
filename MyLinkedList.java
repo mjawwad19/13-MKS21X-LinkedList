@@ -25,6 +25,16 @@ public class MyLinkedList{
     out+= curr + "]";
     return out;
   }
+  private Node getNthNode(int index){
+    if (index < 0 || index >= length) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
+    Node curr = start;
+    int i = 0;
+    while (i < index) { //could be a for loop but I have plans for this for binary searching later on...
+      curr = curr.next();
+      i++;
+    }
+    return curr;
+  }
   /* add a value to linked list
   - if this is the end (as in it stops with no more references) then we have to change that!
   - if this is the end for now but could be added we need to set the end to the NEXT */
@@ -51,18 +61,15 @@ public class MyLinkedList{
     //utilizing Node's setData, we can change any node in the linkedList given an integer
     return tempData; //we MUST return the data before it was changed!
   }
-  /*public boolean contains(Integer value){}
-  public void add (int index, Integer value){}
-  public Integer remove(int index){}
-  public Integer remove(Integer value){}*/
-  private Node getNthNode(int index){
-    if (index < 0 || index >= length) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
+  public boolean contains(Integer value){
     Node curr = start;
-    int i = 0;
-    while (i < index) { //could be a for loop but I have plans for this for binary searching later on...
+    while (curr != null) {
+      if (curr.getData() == value) return true;
       curr = curr.next();
-      i++;
     }
-    return curr;
+    return false;
   }
+  /*public void add (int index, Integer value){}
+  public Integer remove(int index){}
+  public boolean remove(Integer value){}*/
 }
