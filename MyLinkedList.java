@@ -3,16 +3,20 @@ import java.util.List;
 public class MyLinkedList{
   private int length;
   private Node start,end;
-  //everything needs a constructor if it's an object!
+
+  /*Constructs an empty list*/
   public MyLinkedList() {
     length = 0;
 
   }
-  //basic fundamentals
+
+  /*Returns the number of Integers in tis list.*/
   public int size() {
     return length;
   }
-  //toString just prints the contents of the linked list as if array containing each node's data val
+
+  /*Returns a string containing all of the Integers in this list in proper sequence
+  (from first to last Integer)*/
   public String toString(){
     String out = "[";
     if (start == null) return "[]";
@@ -26,6 +30,9 @@ public class MyLinkedList{
     out+= curr + "]";
     return out;
   }
+
+  /*Returns the node at the specified position.
+  *@param index is the specified position*/
   private Node getNthNode(int index){
     if (index < 0 || index >= size()) throw new IndexOutOfBoundsException("" + index + "is not an index of the list");
     Node curr = start;
@@ -36,9 +43,9 @@ public class MyLinkedList{
     }
     return curr;
   }
-  /* add a value to linked list
-  - if this is the end (as in it stops with no more references) then we have to change that!
-  - if this is the end for now but could be added we need to set the end to the NEXT */
+
+  /*Appends the specified Integer to the end of this list.
+  *@param value is the Integer to be added.*/
   public boolean add(Integer value){
     Node n = new Node(value, null, end);
     if (end == null) {
@@ -52,9 +59,17 @@ public class MyLinkedList{
     length++;
     return true;
   }
+
+  /*Returns the Integer at the specified position in this list.
+  *@param index is the specified position*/
   public Integer get(int index){
     return getNthNode(index).getData();
   }
+
+  /*Replaces the Integer at the specified position in this list
+  with the specified Integer.
+  *@param index is the specified position
+  *@param value is the Integer that will replace */
   public Integer set(int index, Integer value){
     Node mod = getNthNode(index); //I love it when I can keep reusing getNthNode
     Integer tempData = mod.getData();
@@ -62,18 +77,28 @@ public class MyLinkedList{
     //utilizing Node's setData, we can change any node in the linkedList given an integer
     return tempData; //we MUST return the data before it was changed!
   }
+
+  /*Returns true if this list contains the specified Integer
+  *@param value is the specified Integer*/
   public boolean contains(Integer value){
     for (int i = 0; i < size(); i++) {
       if (getNthNode(i).getData().equals(value)) return true;
     }
     return false;
   }
-  int indexOf(Integer value){
+
+  /*Returns the index of the first occurrence of the specified Integer in this list,
+    or -1 if this list does not contain the Integer.
+  *@param value is the specified Integer*/
+  public int indexOf(Integer value){
     for (int i = 0; i < size(); i++) {
       if (getNthNode(i).getData().equals(value)) return i;
     }
     return -1;
   }
+
+  /*Removes and returns the Integer at the specified position in this list.
+  *@param index is the specified position*/
   public Integer remove(int index){
     if (index < 0 || index >= size()) throw new IndexOutOfBoundsException();
     Node temp = getNthNode(index);
@@ -96,6 +121,10 @@ public class MyLinkedList{
     length--; //majority of body was ported over from prev commit logic!
     return temp.getData();
   }
+
+  /*Removes the specified integer from this list.
+  - Returns true if successfully removed, false otherwise.
+  *@param value is the Integer to be removed.*/
   public boolean remove(Integer value){
     //screw it i'm doing the work in remove index
     if (!contains(value)) return false;
@@ -103,6 +132,10 @@ public class MyLinkedList{
     remove(index);
     return true;
   }
+
+  /*Inserts the specified Integer at the specified position in this list.
+  *@param index is the specified position
+  *@param value is the specifed Integer to be inserted.*/
   public void add (int index, Integer value){
     if (index < 0 || index > size())
        throw new IndexOutOfBoundsException();
