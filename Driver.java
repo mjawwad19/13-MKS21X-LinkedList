@@ -10,8 +10,8 @@ public class Driver {
     m1.add(3);
     System.out.println(m1); //[2,3]
     System.out.println(m1.size()); //2;
-    System.out.println(m1.getNthNode(0)); //2
-    System.out.println(m1.getNthNode(1)); //3
-    System.out.println(m1.getNthNode(2)); //error
+    System.out.println(m1.get(0)); //2
+    System.out.println(m1.get(1)); //3
+    System.out.println(m1.get(2)); //error
   }
 }
