@@ -15,5 +15,6 @@ public class Driver {
     //System.out.println(m1.get(2)); //error
     m1.set(0, 24);
     System.out.println(m1); //[24,3]
+    m1.set(2, 12); //error
   }
 }
