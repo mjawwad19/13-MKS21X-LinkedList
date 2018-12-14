@@ -69,9 +69,6 @@ public class MyLinkedList{
     }
     return false;
   }
-  /*public void add (int index, Integer value){}
-  public Integer remove(int index){}
-  public boolean remove(Integer value){}*/
   int indexOf(Integer value){
     int index = 0;
     if (!contains(value)) return -1;
@@ -82,4 +79,24 @@ public class MyLinkedList{
     }
     return index;
   }
+  public boolean remove(Integer value){
+    Node curr = start;
+    while (curr != null) {
+      if (curr.getData() == value) {
+        curr.next().setPrev(curr.prev());
+        curr.prev().setNext(curr.next());
+        /*p much: the next node will now be connected to the one before current.
+        the previous node will now be connected to the one after current.
+        since nothing is connected to current anymore, it is effectively gone!*/
+        length--;
+        return true;
+      }
+      curr.next();
+      //otherwise update!
+    }
+    return false;
+    // I couldn't use !contains for false because of java requiring a return at the very bottom sigh
+  }
+  /*public void add (int index, Integer value){}
+  public Integer remove(int index){}*/
 }
