@@ -63,31 +63,19 @@ public class MyLinkedList{
     return tempData; //we MUST return the data before it was changed!
   }
   public boolean contains(Integer value){
-    Node curr = start;
-    while (curr != null) {
-      if (curr.getData() == value) return true;
-      curr = curr.next();
+    for (int i = 0; i < size(); i++) {
+      if (getNthNode(i).getData().equals(value)) return true;
     }
     return false;
   }
   int indexOf(Integer value){
-    int index = 0;
-    if (!contains(value)) return -1;
-    Node curr = start;
-    while (curr != null && curr.getData() != value) {
-      curr = curr.next();
-      index++;
+    for (int i = 0; i < size(); i++) {
+      if (getNthNode(i).getData().equals(value)) return i;
     }
-    return index;
-  }
-  public boolean remove(Integer value){
-    //screw it i'm doing the work in remove index
-    if (!contains(value)) return false;
-    int index = indexOf(value);
-    remove(index);
-    return true;
+    return -1;
   }
   public Integer remove(int index){
+    if (index < 0 || index >= size()) throw new IndexOutOfBoundsException();
     Node temp = getNthNode(index);
     Node nex = temp.next();
     Node pre = temp.prev();
@@ -107,6 +95,13 @@ public class MyLinkedList{
     }
     length--; //majority of body was ported over from prev commit logic!
     return temp.getData();
+  }
+  public boolean remove(Integer value){
+    //screw it i'm doing the work in remove index
+    if (!contains(value)) return false;
+    int index = indexOf(value);
+    remove(index);
+    return true;
   }
   public void add (int index, Integer value){
     if (index < 0 || index > size())
