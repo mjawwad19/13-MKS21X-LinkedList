@@ -32,10 +32,7 @@ public class Driver1{
 
         //Step Five: Remove a value from the list by value
         System.out.println("Remove a Value by its Value Test:\n");
-        System.out.println(list.remove(new Integer(9))); 
-        System.out.println(list.indexOf(9));
-        System.out.println(list.contains(new Integer(9))); //true
-        //list.remove(9);
+        System.out.println(list.remove(new Integer(9)));
         System.out.println(list);
         System.out.println("This should print: \"[0, 1, 2, 3, 4, 5, 6, 7, 8]\"");
         //Step Six: Testing the Contains Method
@@ -52,6 +49,11 @@ public class Driver1{
         System.out.println("Index of Value Test: \n");
         System.out.println(list.indexOf(0));
         System.out.println("This should print: 0");
+
+        //Step Nine: Testing the reverseString Method
+        System.out.println(list); //[0, 1, 2, 3, 4, 5, 6, 7, 8]
+        System.out.println(list.reverseString());
+        System.out.println("This should print: \"[8, 7, 6, 5, 4, 3, 2, 1, 0]\"");
 
     }
 }
