@@ -31,6 +31,19 @@ public class MyLinkedList{
     return out;
   }
 
+  /*Returns a string containing all of the Integers in this list in reverse sequence.*/
+  public String reverseString(){
+    String out = "[";
+    if (end == null) return "[]";
+    Node curr = end;
+    while (curr.prev() != null) {
+      out+= curr +", ";
+      curr = curr.prev();
+    }
+    out+= curr + "]";
+    return out;
+    }
+
   /*Returns the node at the specified position.
   *@param index is the specified position*/
   private Node getNthNode(int index){
