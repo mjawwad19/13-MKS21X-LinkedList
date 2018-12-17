@@ -48,14 +48,9 @@ public class MyLinkedList{
   *@param value is the Integer to be added.*/
   public boolean add(Integer value){
     Node n = new Node(value, null, end);
-    if (end == null) {
-      end = n;
-      start = n;
-    }
-    else {
-      end.setNext(n);
-      end = n;
-    }
+    if (end == null) start = n;
+    else end.setNext(n);
+    end = n;
     length++;
     return true;
   }
