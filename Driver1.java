@@ -53,7 +53,22 @@ public class Driver1{
         //Step Nine: Testing the reverseString Method
         System.out.println(list); //[0, 1, 2, 3, 4, 5, 6, 7, 8]
         System.out.println(list.reverseString());
-        System.out.println("This should print: \"[8, 7, 6, 5, 4, 3, 2, 1, 0]\"");
+        System.out.println("This should print: \"[8, 7, 6, 5, 4, 3, 2, 1, 0]\" \n");
 
+        //Step Ten: Testing Extend method
+        MyLinkedList list2 = new MyLinkedList();
+        for (int i = 0; i <5; i++) {
+          list2.add(i*2);
+        }
+        System.out.println(list2); //[0, 2, 4, 6, 8]
+        list.extend(list2);
+        System.out.println(list);
+        System.out.println("This should print: \"[0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 2, 4, 6, 8]\"");
+        System.out.println(list.size());
+        System.out.println("This should print: 14");
+        System.out.println(list2);
+        System.out.println("This should print: \"[]\"");
+        System.out.println(list2.size());
+        System.out.println("This should print: 0");
     }
 }
