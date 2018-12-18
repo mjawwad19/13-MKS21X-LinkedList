@@ -170,4 +170,22 @@ public class MyLinkedList{
     }
   }
 
+  /*Extends one Linked list by the other.
+   //in 0(1) runtime, move the elements from other onto the end of This
+   // The size of other is reduced to 0
+   // the size of this is now the combined sizes of both original lists
+  *@param other is the other LinkedList*/
+  public void extend(MyLinkedList other) {
+    if (length == 0) start = other.start; // worse case scenario, this is empty
+    else if (other.length == 0) other.end = end; // same cases
+    else {
+      end.setNext(other.start); // connect the two into this
+      other.start.setPrev(end); // make sure to link it back!
+    }
+    end = other.end; //make sure this.end is now at the end of other!
+    length += other.length;
+    other.length = 0;
+    other.start = null;
+    other.end = null; //make other empty afterwards!
+  }
 }
